@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: currency-conversion-service
+  labels:
+    app: currency-conversion-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: currency-conversion-service
+  template:
+    metadata:
+      labels:
+        app: currency-conversion-service
+    spec:
+      containers:
+        - name: currency-conversion-service
+          image: currency-conversion-service:latest
+          ports:
+            - containerPort: 3335
+          env:
+            - name: EXCHANGE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: exchange-rate-secret
+                  key: api_key

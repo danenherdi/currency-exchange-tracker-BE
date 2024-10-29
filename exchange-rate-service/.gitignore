@@ -1,0 +1,15 @@
+# Environment variables
+.env
+
+# Build output
+dist/
+build/
+
+
+# IDE files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db

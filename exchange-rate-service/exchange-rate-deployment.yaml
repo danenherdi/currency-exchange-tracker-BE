@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exchange-rate-service
+  labels:
+    app: exchange-rate-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exchange-rate-service
+  template:
+    metadata:
+      labels:
+        app: exchange-rate-service
+    spec:
+      containers:
+        - name: exchange-rate-service
+          image: exchange-rate-service:latest
+          ports:
+            - containerPort: 3334
+          env:
+            - name: EXCHANGE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: exchange-rate-secret
+                  key: api_key
