@@ -17,6 +17,7 @@ spec:
       containers:
         - name: exchange-rate-service
           image: exchange-rate-service:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3334
           env:
@@ -24,4 +25,4 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: exchange-rate-secret
-                  key: api_key
+                  key: EXCHANGE_API_KEY

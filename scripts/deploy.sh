@@ -12,8 +12,8 @@ cd ..
 # Deploy Currency Conversion Service
 echo "Deploying Currency Conversion Service..."
 cd currency-conversion-service
-kubectl apply -f currency-conversion-service/currency-conversion-deployment.yaml
-kubectl apply -f currency-conversion-service/currency-conversion-service.yaml
+kubectl apply -f currency-conversion-deployment.yaml
+kubectl apply -f currency-conversion-service.yaml
 cd ..
 
 echo "Services successfully deployed!"

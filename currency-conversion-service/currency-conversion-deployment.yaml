@@ -25,4 +25,4 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: exchange-rate-secret
-                  key: api_key
+                  key: EXCHANGE_API_KEY
