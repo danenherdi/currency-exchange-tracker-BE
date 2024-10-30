@@ -17,6 +17,7 @@ spec:
       containers:
         - name: currency-conversion-service
           image: currency-conversion-service:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3335
           env:
